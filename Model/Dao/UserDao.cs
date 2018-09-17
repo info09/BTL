@@ -120,5 +120,13 @@ namespace Model.Dao
         {
             return db.Users.Count(x => x.Email == email) > 0;
         }
+
+        public bool ChangeStauts(long id)
+        {
+            var user = db.Users.Find(id);
+            user.Status = !user.Status;
+            db.SaveChanges();
+            return user.Status;
+        }
     }
 }

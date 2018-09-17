@@ -5,6 +5,9 @@
  */
 $(function() {
     $('#side-menu').metisMenu();
+
+    $('#AlertBox').removeClass('hide');
+    $('#AlertBox').delay(1000).slideUp(500);
 });
 
 //Loads the correct sidebar on window load,
