@@ -1320,6 +1320,50 @@
     <Content Include="Asset\admin\vendor\morrisjs\morris.min.js" />
     <Content Include="Asset\admin\vendor\raphael\raphael.js" />
     <Content Include="Asset\admin\vendor\raphael\raphael.min.js" />
+    <Content Include="Asset\client\css\bootstrap.css" />
+    <Content Include="Asset\client\css\flexslider.css" />
+    <Content Include="Asset\client\css\memenu.css" />
+    <Content Include="Asset\client\css\style.css" />
+    <Content Include="Asset\client\images\11.png" />
+    <Content Include="Asset\client\images\abt-1.jpg" />
+    <Content Include="Asset\client\images\abt-2.jpg" />
+    <Content Include="Asset\client\images\abt-3.jpg" />
+    <Content Include="Asset\client\images\arrow.png" />
+    <Content Include="Asset\client\images\bnr-1.jpg" />
+    <Content Include="Asset\client\images\bnr-2.jpg" />
+    <Content Include="Asset\client\images\bnr-3.jpg" />
+    <Content Include="Asset\client\images\c-1.jpg" />
+    <Content Include="Asset\client\images\c-2.jpg" />
+    <Content Include="Asset\client\images\c-3.jpg" />
+    <Content Include="Asset\client\images\cart-1.png" />
+    <Content Include="Asset\client\images\cart-2.png" />
+    <Content Include="Asset\client\images\cart-3.png" />
+    <Content Include="Asset\client\images\close.png" />
+    <Content Include="Asset\client\images\crossword.png" />
+    <Content Include="Asset\client\images\p-1.png" />
+    <Content Include="Asset\client\images\p-2.png" />
+    <Content Include="Asset\client\images\p-3.png" />
+    <Content Include="Asset\client\images\p-4.png" />
+    <Content Include="Asset\client\images\p-5.png" />
+    <Content Include="Asset\client\images\p-6.png" />
+    <Content Include="Asset\client\images\p-7.png" />
+    <Content Include="Asset\client\images\p-8.png" />
+    <Content Include="Asset\client\images\pr-1.jpg" />
+    <Content Include="Asset\client\images\pr-2.jpg" />
+    <Content Include="Asset\client\images\s-1.jpg" />
+    <Content Include="Asset\client\images\s-2.jpg" />
+    <Content Include="Asset\client\images\s-3.jpg" />
+    <Content Include="Asset\client\images\s-icons.png" />
+    <Content Include="Asset\client\images\search.png" />
+    <Content Include="Asset\client\images\star.png" />
+    <Content Include="Asset\client\images\tick.png" />
+    <Content Include="Asset\client\js\imagezoom.js" />
+    <Content Include="Asset\client\js\jquery-1.11.0.min.js" />
+    <Content Include="Asset\client\js\jquery.easydropdown.js" />
+    <Content Include="Asset\client\js\jquery.flexslider.js" />
+    <Content Include="Asset\client\js\memenu.js" />
+    <Content Include="Asset\client\js\responsiveslides.min.js" />
+    <Content Include="Asset\client\js\simpleCart.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -1414,6 +1458,11 @@
     <Content Include="Asset\admin\js\plugins\ckfinder\userfiles\.htaccess" />
     <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Content\Create.cshtml" />
+    <Content Include="Asset\client\fonts\BreeSerif-Regular.ttf" />
+    <Content Include="Asset\client\fonts\Lato-Regular.ttf" />
+    <Content Include="Asset\client\fonts\Lora-Regular.ttf" />
+    <Content Include="Asset\client\fonts\Muli-Regular.ttf" />
+    <Content Include="Asset\client\fonts\Philosopher-Regular.ttf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1435,17 +1484,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
-    <Folder Include="Asset\client\" />
     <Folder Include="Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
