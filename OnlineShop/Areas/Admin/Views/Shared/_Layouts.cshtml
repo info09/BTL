@@ -68,7 +68,7 @@
     <script src="/Asset/admin/vendor/jquery/jquery.min.js"></script>
 
 
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="/Asset/admin/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -76,8 +76,14 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="/Asset/admin/vendor/metisMenu/metisMenu.min.js"></script>
 
+    <script src="/Asset/admin/js/plugins/ckfinder/ckfinder.js"></script>
+
+    <script src="/Asset/admin/js/plugins/ckeditor/ckeditor.js"></script>
+
     <!-- Custom Theme JavaScript -->
     <script src="/Asset/admin/dist/js/sb-admin-2.js"></script>
+
+    @RenderSection("jsFooter", required: false);
 
 </body>
 
