@@ -2,21 +2,21 @@
 @{
     ViewBag.Title = "Trang chủ";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var slide = (List<Model.EF.Slide>)ViewBag.Slides;
 }
 @section slide{
 
     <div class="bnr" id="home">
         <div id="top" class="callbacks_container">
             <ul class="rslides" id="slider4">
-                <li>
-                    <img src="/Asset/client/images/bnr-1.jpg" alt="" />
-                </li>
-                <li>
-                    <img src="/Asset/client/images/bnr-2.jpg" alt="" />
-                </li>
-                <li>
-                    <img src="/Asset/client/images/bnr-3.jpg" alt="" />
-                </li>
+                @foreach (var item in slide)
+                {
+                    <li>
+                        <a href="@item.Link"><img src="@item.Image" alt="" /></a>
+                    </li>
+                }
+
+                
             </ul>
         </div>
         <div class="clearfix"> </div>
