@@ -1,85 +1,85 @@
 ﻿@model OnlineShop.Areas.Admin.Models.LoginModel
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Flaty User login Form a Flat Responsive Widget Template :: w3layouts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Login</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="/Asset/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-
-    <!-- MetisMenu CSS -->
-    <link href="/Asset/admin/vendor/metisMenu/metisMenu.css" rel="stylesheet" />
-
-    <!-- Custom CSS -->
-    <link href="/Asset/admin/dist/css/sb-admin-2.css" rel="stylesheet" />
-
-    <!-- Custom Fonts -->
-    <link href="/Asset/admin/vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Flaty User login Form template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <link href="~/Asset/admin/login/css/style.css" media="all" rel="stylesheet" />
+    <!-- //Custom Theme files -->
+    <!-- js -->
+    <script src="~/Asset/admin/login/js/jquery-2.2.3.min.js"></script>
+    <!-- //js -->
+    <!-- web font -->
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'><!--web font-->
+    <!-- //web font -->
 </head>
-
 <body>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
+    <!-- main -->
+    <div class="main-agileits">
+        <h1>Đăng nhập</h1>
+        <div class="mainw3-agileinfo form">
+            <div id="login">
+                @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                {
+                    <div class="field-wrap">
+                        <label> Tài khoản<span class="req">*</span> </label>
+                        @Html.TextBoxFor(model=>model.UserName,new { @autocomplete = "off" })
                     </div>
-                    <div class="panel-body">
-                        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
-                        {
-                            <fieldset>
-                                <div class="form-group">
-                                    @Html.TextBoxFor(model=>model.UserName, new {@class="form-control",@autofocus="autofocus", @placeholder = "Tài khoản" })
-                                </div>
-                                <div class="form-group">
-                                    @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "Mật khẩu" })
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        @Html.CheckBoxFor(model=>model.RememberMe) Remember Me
-                                    </label>
-                                </div>
-                                <!-- Change this to a button or input when using this as a form -->
-                                <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
-                            </fieldset>
-                        }
-
+                    <div class="field-wrap">
+                        <label> Mật khẩu<span class="req">*</span> </label>
+                        @Html.PasswordFor(model => model.Password, new { @autocomplete="off"})
                     </div>
-                </div>
+                    <button class="button button-block">Đăng nhập</button>
+                }
+
             </div>
+
         </div>
     </div>
+    <!-- //main -->
+    <!-- copyright -->
+    <div class="w3copyright-agile">
+        <p>© 2017 Flaty User login Form. All rights reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>
+    </div>
+    <!-- //copyright -->
+    <script>
+        $('.form').find('input, textarea').on('keyup blur focus', function (e) {
+            var $this = $(this),
+                label = $this.prev('label');
 
-    <!-- jQuery -->
-    <script src="/Asset/admin/vendor/jquery/jquery.min.js"></script>
+            if (e.type === 'keyup') {
+                if ($this.val() === '') {
+                    label.removeClass('active highlight');
+                } else {
+                    label.addClass('active highlight');
+                }
+            } else if (e.type === 'blur') {
+                if ($this.val() === '') {
+                    label.removeClass('active highlight');
+                } else {
+                    label.removeClass('highlight');
+                }
+            } else if (e.type === 'focus') {
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/Asset/admin/vendor/bootstrap/js/bootstrap.min.js"></script>
+                if ($this.val() === '') {
+                    label.removeClass('highlight');
+                }
+                else if ($this.val() !== '') {
+                    label.addClass('highlight');
+                }
+            }
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="/Asset/admin/vendor/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="/Asset/admin/dist/js/sb-admin-2.js"></script>
-
+        });
+    </script>
 </body>
-
 </html>

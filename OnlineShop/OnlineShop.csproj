@@ -1233,6 +1233,9 @@
     <Content Include="Asset\admin\js\plugins\ckfinder\_samples\standalone.html" />
     <Content Include="Asset\admin\js\plugins\ckfinder\_samples\standalone_v1.html" />
     <Content Include="Asset\admin\js\sb-admin-2.js" />
+    <Content Include="Asset\admin\login\css\style.css" />
+    <Content Include="Asset\admin\login\images\1.jpg" />
+    <Content Include="Asset\admin\login\js\jquery-2.2.3.min.js" />
     <Content Include="Asset\admin\vendor\bootstrap-social\bootstrap-social.css" />
     <Content Include="Asset\admin\vendor\bootstrap\css\bootstrap.css" />
     <Content Include="Asset\admin\vendor\bootstrap\css\bootstrap.min.css" />
