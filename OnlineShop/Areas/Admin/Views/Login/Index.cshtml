@@ -18,6 +18,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- //Custom Theme files -->
     <!-- js -->
     <script src="~/Asset/admin/login/js/jquery-2.2.3.min.js"></script>
+    @*<link href="~/Asset/client/css/bootstrap.css" rel="stylesheet" />*@
     <!-- //js -->
     <!-- web font -->
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'><!--web font-->
@@ -31,13 +32,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div id="login">
                 @using (Html.BeginForm("Login", "Login", FormMethod.Post))
                 {
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger", @style="color:red;" });
                     <div class="field-wrap">
                         <label> Tài khoản<span class="req">*</span> </label>
-                        @Html.TextBoxFor(model=>model.UserName,new { @autocomplete = "off" })
+                        @Html.TextBoxFor(model => model.UserName, new { @autocomplete = "off" })
                     </div>
                     <div class="field-wrap">
                         <label> Mật khẩu<span class="req">*</span> </label>
-                        @Html.PasswordFor(model => model.Password, new { @autocomplete="off"})
+                        @Html.PasswordFor(model => model.Password, new { @autocomplete = "off" })
                     </div>
                     <button class="button button-block">Đăng nhập</button>
                 }
