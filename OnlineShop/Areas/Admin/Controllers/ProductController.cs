@@ -86,5 +86,12 @@ namespace OnlineShop.Areas.Admin.Controllers
             var dao = new ProductCategoryDao();
             ViewBag.CategoryID = new SelectList(dao.ListAll(), "ID", "Name", selectedId);
         }
+
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            new ProductDao().Delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }
