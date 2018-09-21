@@ -74,6 +74,7 @@ namespace Model.Dao
                 }
                 user.Address = entity.Address;
                 user.Email = entity.Email;
+                user.Avatar = entity.Avatar;
                 user.ModifiedBy = entity.ModifiedBy;
                 user.ModifiedDate = DateTime.Now;
                 db.SaveChanges();

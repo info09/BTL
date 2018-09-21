@@ -17,6 +17,9 @@ namespace Model.EF
         [StringLength(32)]
         public string Password { get; set; }
 
+        [StringLength(150)]
+        public string Avatar { get; set; }
+
         [StringLength(20)]
         public string GroupId { get; set; }
 

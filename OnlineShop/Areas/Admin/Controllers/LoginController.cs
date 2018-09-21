@@ -29,6 +29,10 @@ namespace OnlineShop.Areas.Admin.Controllers
                     var userSession = new UserLogin();
                     userSession.UserName = user.UserName;
                     userSession.UserId = user.ID;
+                    userSession.Name = user.Name;
+                    userSession.Address = user.Address;
+                    userSession.Phone = user.Phone;
+                    userSession.Email = user.Email;
                     Session.Add(CommonConstants.USER_SESSION, userSession);
                     return RedirectToAction("Index", "Home");
                 }
