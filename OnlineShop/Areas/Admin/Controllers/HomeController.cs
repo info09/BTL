@@ -14,6 +14,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         {
             ViewBag.user = new UserDao().countUser();
             ViewBag.product = new ProductDao().countProduct();
+            ViewBag.content = new ContentDao().countContent();
             return View();
         }
 
