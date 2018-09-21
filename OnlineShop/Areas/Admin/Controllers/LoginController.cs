@@ -33,6 +33,7 @@ namespace OnlineShop.Areas.Admin.Controllers
                     userSession.Address = user.Address;
                     userSession.Phone = user.Phone;
                     userSession.Email = user.Email;
+                    userSession.Avatar = user.Avatar;
                     Session.Add(CommonConstants.USER_SESSION, userSession);
                     return RedirectToAction("Index", "Home");
                 }
