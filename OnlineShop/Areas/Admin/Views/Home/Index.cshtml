@@ -2,6 +2,8 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+    var users = ViewBag.user;
+    var products = ViewBag.product;
 }
 
 @section header{
@@ -9,9 +11,43 @@
         Trang chủ
 
     </h1>
-    <ol class="breadcrumb">
-        <li><a href="/Admin/Home/Index"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+    
+
+    <br />
+
+    <div class="row">
+        <div class="col-lg-6 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>@products</h3>
+
+                    <p>Sản phẩm</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+                <a href="/Admin/Product" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
         
-    </ol>
+        <!-- ./col -->
+        <div class="col-lg-6 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>@users</h3>
+
+                    <p>Người dùng</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                </div>
+                <a href="/Admin/User" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+    </div>
 }
+
 

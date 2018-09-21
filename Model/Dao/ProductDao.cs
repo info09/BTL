@@ -16,6 +16,11 @@ namespace Model.Dao
             db = new OnlineShopDbContext();
         }
 
+        public int countProduct()
+        {
+            return db.Products.Count();
+        }
+
         public Product GetById(long id)
         {
             return db.Products.Find(id);

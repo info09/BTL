@@ -17,6 +17,11 @@ namespace Model.Dao
             db = new OnlineShopDbContext();
         }
 
+        public int countUser()
+        {
+            return db.Users.Count();
+        }
+
         public long Insert(User user)
         {
             user.CreatedDate = DateTime.Now;
