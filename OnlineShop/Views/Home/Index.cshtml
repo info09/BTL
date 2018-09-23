@@ -3,6 +3,8 @@
     ViewBag.Title = "Trang chủ";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var slide = (List<Model.EF.Slide>)ViewBag.Slides;
+    var listNewProduct = (List<Model.EF.Product>)ViewBag.newProduct;
+    var listFeatureProduct = (List<Model.EF.Product>)ViewBag.featureProduct;
 }
 @section slide{
 
@@ -28,113 +30,53 @@
     <div class="container">
         <div class="product-top">
             <div class="product-one">
-                <div class="col-md-3 product-left">
-                    <div class="product-main simpleCart_shelfItem">
-                        <a href="single.html" class="mask"><img class="img-responsive zoom-img" src="/Asset/client/images/p-1.png" alt="" /></a>
-                        <div class="product-bottom">
-                            <h3>Smart Watches</h3>
-                            <p>Explore Now</p>
-                            <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-                        </div>
-                        <div class="srch">
-                            <span>-50%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 product-left">
-                    <div class="product-main simpleCart_shelfItem">
-                        <a href="single.html" class="mask"><img class="img-responsive zoom-img" src="/Asset/client/images/p-2.png" alt="" /></a>
-                        <div class="product-bottom">
-                            <h3>Smart Watches</h3>
-                            <p>Explore Now</p>
-                            <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-                        </div>
-                        <div class="srch">
-                            <span>-50%</span>
+                <h2 class="product-left" style="font-style: unset;">Sản phẩm mới</h2>
+                <br />
+                @foreach (var item in listNewProduct)
+                {
+                    var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                    <div class="col-md-3 product-left">
+                        <div class="product-main simpleCart_shelfItem">
+                            <a href="@url" class="mask"><img class="img-responsive zoom-img" src="@item.Image" alt="@item.Name" /></a>
+                            <div class="product-bottom">
+                                <h3>@item.Name</h3>
+                                @*<p>Explore Now</p>*@
+                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">@(item.Price.HasValue?item.Price.Value.ToString("N0"):"Liên Hệ")</span></h4>
+                            </div>
+                            @*<div class="srch">
+                                <span>-50%</span>
+                            </div>*@
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3 product-left">
-                    <div class="product-main simpleCart_shelfItem">
-                        <a href="single.html" class="mask"><img class="img-responsive zoom-img" src="/Asset/client/images/p-3.png" alt="" /></a>
-                        <div class="product-bottom">
-                            <h3>Smart Watches</h3>
-                            <p>Explore Now</p>
-                            <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-                        </div>
-                        <div class="srch">
-                            <span>-50%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 product-left">
-                    <div class="product-main simpleCart_shelfItem">
-                        <a href="single.html" class="mask"><img class="img-responsive zoom-img" src="/Asset/client/images/p-4.png" alt="" /></a>
-                        <div class="product-bottom">
-                            <h3>Smart Watches</h3>
-                            <p>Explore Now</p>
-                            <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-                        </div>
-                        <div class="srch">
-                            <span>-50%</span>
-                        </div>
-                    </div>
-                </div>
+                }
+
+
                 <div class="clearfix"></div>
             </div>
+            <br />
+            <br />
+            
+            <h2 class="product-left">Sản phẩm hot</h2>
             <div class="product-one">
-                <div class="col-md-3 product-left">
-                    <div class="product-main simpleCart_shelfItem">
-                        <a href="single.html" class="mask"><img class="img-responsive zoom-img" src="/Asset/client/images/p-5.png" alt="" /></a>
-                        <div class="product-bottom">
-                            <h3>Smart Watches</h3>
-                            <p>Explore Now</p>
-                            <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-                        </div>
-                        <div class="srch">
-                            <span>-50%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 product-left">
-                    <div class="product-main simpleCart_shelfItem">
-                        <a href="single.html" class="mask"><img class="img-responsive zoom-img" src="/Asset/client/images/p-6.png" alt="" /></a>
-                        <div class="product-bottom">
-                            <h3>Smart Watches</h3>
-                            <p>Explore Now</p>
-                            <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-                        </div>
-                        <div class="srch">
-                            <span>-50%</span>
+                @foreach (var item in listFeatureProduct)
+                {
+                    var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                    <div class="col-md-3 product-left">
+                        <div class="product-main simpleCart_shelfItem">
+                            <a href="@url" class="mask"><img class="img-responsive zoom-img" src="@item.Image" alt="@item.Name" /></a>
+                            <div class="product-bottom">
+                                <h3>@item.Name</h3>
+                                <p>Explore Now</p>
+                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">@(item.Price.HasValue?item.Price.Value.ToString("N0") : "Liên Hệ")</span></h4>
+                            </div>
+                            @*<div class="srch">
+                                <span>-50%</span>
+                            </div>*@
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3 product-left">
-                    <div class="product-main simpleCart_shelfItem">
-                        <a href="single.html" class="mask"><img class="img-responsive zoom-img" src="/Asset/client/images/p-7.png" alt="" /></a>
-                        <div class="product-bottom">
-                            <h3>Smart Watches</h3>
-                            <p>Explore Now</p>
-                            <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-                        </div>
-                        <div class="srch">
-                            <span>-50%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 product-left">
-                    <div class="product-main simpleCart_shelfItem">
-                        <a href="single.html" class="mask"><img class="img-responsive zoom-img" src="/Asset/client/images/p-8.png" alt="" /></a>
-                        <div class="product-bottom">
-                            <h3>Smart Watches</h3>
-                            <p>Explore Now</p>
-                            <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-                        </div>
-                        <div class="srch">
-                            <span>-50%</span>
-                        </div>
-                    </div>
-                </div>
+                }
+
+
                 <div class="clearfix"></div>
             </div>
         </div>
