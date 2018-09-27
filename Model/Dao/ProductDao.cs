@@ -97,5 +97,16 @@ namespace Model.Dao
         {
             return db.Products.Where(x => x.TopHot != null && x.TopHot > DateTime.Now).OrderByDescending(x => x.CreatedDate).Take(top).ToList();
         }
+
+        public Product ViewDetail(long id)
+        {
+            return db.Products.Find(id);
+        }
+
+        public List<Product> ListRelateProduct(long productId)
+        {
+            var product = db.Products.Find(productId);
+            return db.Products.Where(x => x.ID != productId && x.CategoryID == product.CategoryID).ToList();
+        }
     }
 }

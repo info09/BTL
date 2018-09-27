@@ -13,7 +13,24 @@ namespace OnlineShop
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            
+            routes.MapRoute(
+                name: "Product Category",
+                url: "san-pham/{metaTitle}-{id}",
+                defaults: new { controller = "Product", action = "Category", id = UrlParameter.Optional },
+                namespaces: new[] { "OnlineShop.Controllers" }
+            );
+            routes.MapRoute(
+               name: "Product Detail",
+               url: "chi-tiet/{metaTitle}-{id}",
+               defaults: new { controller = "Product", action = "Detail", id = UrlParameter.Optional },
+               namespaces: new[] { "OnlineShop.Controllers" }
+           );
+           // routes.MapRoute(
+           //    name: "About",
+           //    url: "gioi-thieu",
+           //    defaults: new { controller = "About", action = "Index", id = UrlParameter.Optional },
+           //    namespaces: new[] { "OnlineShop.Controllers" }
+           //);
             routes.MapRoute(
                 name: "Content",
                 url: "tin-tuc/{metatitle}-{id}",
