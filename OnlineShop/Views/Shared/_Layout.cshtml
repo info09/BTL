@@ -57,11 +57,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
     </div>
-    </div>
     <!--top-header-->
     <!--start-logo-->
     <div class="logo">
-        <a href="index.html"><h1>Luxury Watches</h1></a>
+        <a href="/"><h1>Luxury Watches</h1></a>
     </div>
     <!--start-logo-->
     <!--bottom-header-->
@@ -109,42 +108,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <!--End-slider-script-->
     <!--about-starts-->
-    <div class="about">
-        <div class="container">
-            <div class="about-top grid-1">
-                <div class="col-md-4 about-left">
-                    <figure class="effect-bubba">
-                        <img class="img-responsive" src="/Asset/client/images/abt-1.jpg" alt="" />
-                        <figcaption>
-                            <h2>Nulla maximus nunc</h2>
-                            <p>In sit amet sapien eros Integer dolore magna aliqua</p>
-                        </figcaption>
-                    </figure>
-                </div>
-                <div class="col-md-4 about-left">
-                    <figure class="effect-bubba">
-                        <img class="img-responsive" src="/Asset/client/images/abt-2.jpg" alt="" />
-                        <figcaption>
-                            <h4>Mauris erat augue</h4>
-                            <p>In sit amet sapien eros Integer dolore magna aliqua</p>
-                        </figcaption>
-                    </figure>
-                </div>
-                <div class="col-md-4 about-left">
-                    <figure class="effect-bubba">
-                        <img class="img-responsive" src="/Asset/client/images/abt-3.jpg" alt="" />
-                        <figcaption>
-                            <h4>Cras elit mauris</h4>
-                            <p>In sit amet sapien eros Integer dolore magna aliqua</p>
-                        </figcaption>
-                    </figure>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
+    @RenderSection("about",required:false)
 
-    @{ Html.RenderAction("ProductCategory", "Product");}
+    @RenderSection("productCategory",required:false)
     <!--about-end-->
     <!--product-starts-->
     @RenderBody()

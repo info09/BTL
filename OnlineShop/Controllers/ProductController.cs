@@ -12,14 +12,15 @@ namespace OnlineShop.Controllers
         // GET: Product
         public ActionResult Index()
         {
+
             return View();
         }
 
-        [ChildActionOnly]
-        public PartialViewResult ProductCategory()
-        {
-            var model = new ProductCategoryDao().ListAll();
-            return PartialView(model);
-        }
+        //[ChildActionOnly]
+        //public PartialViewResult ProductCategory()
+        //{
+        //    var model = new ProductCategoryDao().ListAll();
+        //    return PartialView(model);
+        //}
     }
 }

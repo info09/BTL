@@ -3,6 +3,7 @@
     ViewBag.Title = "Trang chủ";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var slide = (List<Model.EF.Slide>)ViewBag.Slides;
+    var productCategory = (List<Model.EF.ProductCategory>)ViewBag.ProductCategory;
     var listNewProduct = (List<Model.EF.Product>)ViewBag.newProduct;
     var listFeatureProduct = (List<Model.EF.Product>)ViewBag.featureProduct;
 }
@@ -18,14 +19,71 @@
                     </li>
                 }
 
-                
+
             </ul>
         </div>
         <div class="clearfix"> </div>
     </div>
 }
+@section about{
+    <div class="about">
+        <div class="container">
+            <div class="about-top grid-1">
+                <div class="col-md-4 about-left">
+                    <figure class="effect-bubba">
+                        <img class="img-responsive" src="/Asset/client/images/abt-1.jpg" alt="" />
+                        <figcaption>
+                            <h2>Nulla maximus nunc</h2>
+                            <p>In sit amet sapien eros Integer dolore magna aliqua</p>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-md-4 about-left">
+                    <figure class="effect-bubba">
+                        <img class="img-responsive" src="/Asset/client/images/abt-2.jpg" alt="" />
+                        <figcaption>
+                            <h4>Mauris erat augue</h4>
+                            <p>In sit amet sapien eros Integer dolore magna aliqua</p>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-md-4 about-left">
+                    <figure class="effect-bubba">
+                        <img class="img-responsive" src="/Asset/client/images/abt-3.jpg" alt="" />
+                        <figcaption>
+                            <h4>Cras elit mauris</h4>
+                            <p>In sit amet sapien eros Integer dolore magna aliqua</p>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+}
+@section productCategory{
+    <div class="header-bottom">
+        <div class="container">
+            <div class="header">
+                <div class="col-md-9 header-left">
+                    <div class="top-nav">
+                        <ul class="memenu skyblue">
+                            @foreach (var item in productCategory)
+                            {
+                                <li class="grid">
+                                    <a href="/san-pham/@item.MetaTitle-@item.ID">@item.Name</a>
+
+                                </li>
+                            }
 
 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
 <div class="product">
     <div class="container">
         <div class="product-top">
@@ -41,11 +99,11 @@
                             <div class="product-bottom">
                                 <h3>@item.Name</h3>
                                 @*<p>Explore Now</p>*@
-                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">@(item.Price.HasValue?item.Price.Value.ToString("N0"):"Liên Hệ")</span></h4>
+                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Liên Hệ")</span></h4>
                             </div>
                             @*<div class="srch">
-                                <span>-50%</span>
-                            </div>*@
+                                    <span>-50%</span>
+                                </div>*@
                         </div>
                     </div>
                 }
@@ -55,7 +113,7 @@
             </div>
             <br />
             <br />
-            
+
             <h2 class="product-left">Sản phẩm hot</h2>
             <div class="product-one">
                 @foreach (var item in listFeatureProduct)
@@ -67,11 +125,11 @@
                             <div class="product-bottom">
                                 <h3>@item.Name</h3>
                                 @*<p>Explore Now</p>*@
-                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">@(item.Price.HasValue?item.Price.Value.ToString("N0") : "Liên Hệ")</span></h4>
+                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Liên Hệ")</span></h4>
                             </div>
                             @*<div class="srch">
-                                <span>-50%</span>
-                            </div>*@
+                                    <span>-50%</span>
+                                </div>*@
                         </div>
                     </div>
                 }

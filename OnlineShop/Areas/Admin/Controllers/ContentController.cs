@@ -1,10 +1,12 @@
 ﻿using Model.Dao;
 using Model.EF;
+using OnlineShop.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
@@ -33,8 +35,10 @@ namespace OnlineShop.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                var session = (UserLogin)Session[CommonConstants.USER_SESSION];
+                model.CreatedBy = session.UserName;
                 var dao = new ContentDao();
-                long id = dao.Insert(model);
+                long id = dao.Create(model);
                 if (id > 0)
                 {
                     SetAlert("Thêm thông tin thành công", "success");
@@ -66,10 +70,12 @@ namespace OnlineShop.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                var session = (UserLogin)Session[CommonConstants.USER_SESSION];
+                model.ModifiedBy = session.UserName;
+                model.ModifiedDate = DateTime.Now;
                 var dao = new ContentDao();
-
-                var result = dao.Update(model);
-                if (result)
+                long id = dao.Edit(model);
+                if (id>0)
                 {
                     SetAlert("Update content thành công", "success");
                     return RedirectToAction("Index", "Content");
@@ -95,5 +101,7 @@ namespace OnlineShop.Areas.Admin.Controllers
             var dao = new CategoryDao();
             ViewBag.CategoryID = new SelectList(dao.ListAll(), "ID", "Name", selectedId);
         }
+
+
     }
 }

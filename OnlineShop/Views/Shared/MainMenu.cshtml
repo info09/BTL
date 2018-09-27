@@ -1,14 +1,14 @@
 ﻿@model List<Model.EF.Menu>
-    <div class="top-nav">
-        <ul class="memenu skyblue">
-            @foreach (var item in Model)
-            {
-                <li>
-                    <a href="@item.Link">@item.Text</a>
-                </li>
-            }
+<div class="top-nav">
+    <ul class="memenu skyblue">
+        @foreach (var item in Model)
+        {
+            <li>
+                <a href="@item.Link">@item.Text</a>
+            </li>
+        }
 
-            
-        </ul>
-    </div>
-    <div class="clearfix"> </div>
+
+    </ul>
+</div>
+<div class="clearfix"> </div>

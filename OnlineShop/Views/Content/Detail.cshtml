@@ -1,0 +1,37 @@
+﻿@model Model.EF.Content
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="breadcrumbs-main">
+            <ol class="breadcrumb">
+                <li class="active">@Model.Name</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+<div class="container">
+    <div class="content">
+
+        <div class="clear"></div>
+    </div>
+    <div class="section-group">
+        @Html.Raw(Model.Detail)
+        <ul>
+            
+
+            @{
+                var tag = (List<Model.EF.Tag>)ViewBag.Tags;
+                foreach (var item in tag)
+                {
+                    <li><a href="/tag/@item.ID">@item.Name</a></li>
+                }
+            }
+        </ul>
+    </div>
+</div>
+
+
