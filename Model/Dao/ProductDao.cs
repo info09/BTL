@@ -103,10 +103,17 @@ namespace Model.Dao
             return db.Products.Find(id);
         }
 
-        public List<Product> ListRelateProduct(long productId)
+        public List<Product> ListRelateProduct(long productId,int top)
         {
             var product = db.Products.Find(productId);
-            return db.Products.Where(x => x.ID != productId && x.CategoryID == product.CategoryID).ToList();
+            return db.Products.Where(x => x.ID != productId && x.CategoryID == product.CategoryID).Take(top).ToList();
+        }
+
+        public List<Product> ListProductByCategory(long categoryId, ref int totalRecord, int page=1, int pageSize=3)
+        {
+            totalRecord = db.Products.Where(x => x.CategoryID == categoryId).Count();
+            var model = db.Products.Where(x => x.CategoryID == categoryId).OrderByDescending(x => x.CreatedDate).Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            return model;
         }
     }
 }

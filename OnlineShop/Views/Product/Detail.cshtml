@@ -24,24 +24,24 @@
         <div class="single-main">
             <div class="col-md-9 single-main-left">
                 <div class="sngl-top">
-                    <div class="col-md-5 single-top-left">
+                    <div class="col-md-4 single-top-left">
                         <div class="flexslider">
                             <div style="float: left; display: block; width: 304px;" class="thumb-image">
-                                <img src="@Model.Image" class="img-responsive" alt="">
+                                <img src="@Model.Image" class="img-responsive" alt="" style="width:50%;">
                             </div>
                         </div>
                         <link rel="stylesheet" href="/Asset/client/css/flexslider.css" type="text/css" media="screen" />
 
-                        
+
                     </div>
-                    <div class="col-md-7 single-top-right">
+                    <div class="col-md-8 single-top-right">
                         <div class="single-para simpleCart_shelfItem">
                             <h2>@Model.Name</h2>
 
 
-                            <h5 class="item_price">@(Model.Price.HasValue ? Model.Price.Value.ToString("N0") : "Liên Hệ")</h5>
+                            <h5 class="item_price">@(Model.Price.HasValue ? Model.Price.Value.ToString("N0") : "Liên Hệ") VNĐ</h5>
                             <p>@Model.Description</p>
-                            
+
 
                             <a href="#" class="add-cart item_add">Thêm vào giỏ hàng</a>
 
@@ -52,7 +52,8 @@
                 <div class="tabs">
                     <ul class="menu_drop">
                         <li class="item1">
-                            <a href="#"><img src="/Asset/client/images/arrow.png" alt="">Chi tiết</a>
+                           
+                            <a href="#">Chi tiết</a>
                             <ul>
 
                                 <li class="subitem3">

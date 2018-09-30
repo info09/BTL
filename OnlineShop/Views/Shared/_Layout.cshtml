@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Luxury Watches A Ecommerce Category Flat Bootstrap Resposive Website Template | Home :: w3layouts</title>
+    <title>Luxury Watches </title>
     <link href="/Asset/client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!--jQuery(necessary for Bootstrap's JavaScript plugins)-->
     <script src="/Asset/client/js/jquery-1.11.0.min.js"></script>
@@ -22,7 +22,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!--start-menu-->
     @*<script src="/Asset/client/js/simpleCart.min.js"></script>
-    <script src="/Asset/client/js/simpleCart.min.js"></script>*@
+        <script src="/Asset/client/js/simpleCart.min.js"></script>*@
+    <link href="/Asset/client/css/font-awesome.min.css" rel="stylesheet" />
     <link href="/Asset/client/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
     <script type="text/javascript" src="/Asset/client/js/memenu.js"></script>
     <script>$(document).ready(function () { $(".memenu").memenu(); });</script>
@@ -43,6 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="total">
                                 <span class="simpleCart_total">0 Sản phẩm</span>
                             </div>
+                            @*<i class="fa fa-shopping-cart"></i>*@
                             <img src="/Asset/client/images/cart-1.png" alt="" />
                         </a>
                         <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
@@ -61,14 +63,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--start-logo-->
     <div class="logo">
         <a href="/"><h1>Luxury Watches</h1></a>
+
     </div>
     <!--start-logo-->
     <!--bottom-header-->
     <div class="header-bottom">
         <div class="container">
             <div class="header">
-                <div class="col-md-9 header-left">
+                <div class="col-md-6 header-left">
                     @{ Html.RenderAction("MainMenu", "Home");}
+                </div>
+                <div class="col-md-3 header-right">
+                    @*<div class="cart box_1">
+                        <a href="checkout.html">
+                            <div class="total">
+                                <span class="simpleCart_total">0 Sản phẩm</span>
+                            </div>
+                            <i class="fa fa-shopping-cart"></i>
+                        </a>
+                        <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+                        <div class="clearfix"> </div>
+                    </div>*@
                 </div>
                 <div class="col-md-3 header-right">
                     <div class="search-bar">

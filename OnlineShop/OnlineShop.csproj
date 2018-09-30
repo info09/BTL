@@ -7697,8 +7697,10 @@
     <Content Include="Asset\admin\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Asset\client\css\bootstrap.css" />
     <Content Include="Asset\client\css\flexslider.css" />
+    <Content Include="Asset\client\css\font-awesome.min.css" />
     <Content Include="Asset\client\css\memenu.css" />
     <Content Include="Asset\client\css\style.css" />
+    <Content Include="Asset\client\fonts\fontawesome-webfont.svg" />
     <Content Include="Asset\client\images\11.png" />
     <Content Include="Asset\client\images\abt-1.jpg" />
     <Content Include="Asset\client\images\abt-2.jpg" />
@@ -8400,6 +8402,11 @@
     <Content Include="Areas\Admin\Views\ProductCategory\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ProductCategory\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ProductCategory\Edit.cshtml" />
+    <Content Include="Asset\client\fonts\fontawesome-webfont.eot" />
+    <Content Include="Asset\client\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Asset\client\fonts\fontawesome-webfont.woff" />
+    <Content Include="Asset\client\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Asset\client\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
