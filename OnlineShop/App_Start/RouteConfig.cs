@@ -25,12 +25,12 @@ namespace OnlineShop
                defaults: new { controller = "Product", action = "Detail", id = UrlParameter.Optional },
                namespaces: new[] { "OnlineShop.Controllers" }
            );
-           // routes.MapRoute(
-           //    name: "About",
-           //    url: "gioi-thieu",
-           //    defaults: new { controller = "About", action = "Index", id = UrlParameter.Optional },
-           //    namespaces: new[] { "OnlineShop.Controllers" }
-           //);
+            routes.MapRoute(
+               name: "san pham",
+               url: "list-san-pham",
+               defaults: new { controller = "Product", action = "Index", id = UrlParameter.Optional },
+               namespaces: new[] { "OnlineShop.Controllers" }
+           );
             routes.MapRoute(
                 name: "Content",
                 url: "tin-tuc/{metatitle}-{id}",

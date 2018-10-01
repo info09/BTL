@@ -115,5 +115,10 @@ namespace Model.Dao
             var model = db.Products.Where(x => x.CategoryID == categoryId).OrderByDescending(x => x.CreatedDate).Skip((page - 1) * pageSize).Take(pageSize).ToList();
             return model;
         }
+
+        public List<Product> ListAllProduct(ref int totalRecord, int page=1, int pageSize = 2)
+        {
+            return db.Products.Where(x => x.Status == true).OrderByDescending(x => x.CreatedDate).Skip((page - 1) * pageSize).Take(pageSize).ToList();
+        }
     }
 }

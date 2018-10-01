@@ -10,10 +10,25 @@ namespace OnlineShop.Controllers
     public class ProductController : Controller
     {
         // GET: Product
-        public ActionResult Index()
+        public ActionResult Index(int page=1, int pageSize=6)
         {
+            ViewBag.ProductCategory = new ProductCategoryDao().ListAll();
+            int totalRecord = 0;
+            var model = new ProductDao().ListAllProduct(ref totalRecord, page, pageSize);
+            ViewBag.TotalPage = totalRecord;
+            ViewBag.Page = page;
 
-            return View();
+            int maxPage = 5;
+            int totalPage = 0;
+            totalPage = (int)Math.Ceiling((double)totalRecord / pageSize);
+
+            ViewBag.TotalPage = totalPage;
+            ViewBag.MaxPage = maxPage;
+            ViewBag.First = 1;
+            ViewBag.Last = totalPage;
+            ViewBag.Next = page + 1;
+            ViewBag.Prev = page - 1;
+            return View(model);
         }
 
         //[ChildActionOnly]
@@ -27,6 +42,7 @@ namespace OnlineShop.Controllers
         {
             var category = new ProductCategoryDao().ViewDetail(id);
             ViewBag.Category = category;
+            ViewBag.ProductCategory = new ProductCategoryDao().ListAll();
             int totalRecord = 0;
             var model = new ProductDao().ListProductByCategory(id,ref totalRecord,page,pageSize);
 

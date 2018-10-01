@@ -1,7 +1,7 @@
 ﻿@model List<Model.EF.Product>
 @{
     var category = (Model.EF.ProductCategory)ViewBag.Category;
-    ViewBag.Title = category.Name;
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var productCategory = (List<Model.EF.ProductCategory>)ViewBag.ProductCategory;
 }
@@ -11,7 +11,7 @@
         <div class="breadcrumbs-main">
             <ol class="breadcrumb">
                 <li><a href="/">Trang chủ</a></li>
-                <li class="active">@category.Name</li>
+                <li class="active">Sản phẩm</li>
             </ol>
         </div>
     </div>
@@ -36,8 +36,8 @@
                                         <h4><a class="item_add" href="/gio-hang/@item.ID"><i></i></a> <span class=" item_price">@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Liên hệ")</span></h4>
                                     </div>
                                     @*<div class="srch srch1">
-                            <span>-50%</span>
-                        </div>*@
+                                            <span>-50%</span>
+                                        </div>*@
                                 </div>
                             </div>
                         }
@@ -57,13 +57,15 @@
                             var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
                             var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
 
-                            var link = "/san-pham/" + category.MetaTitle + "-" + category.ID;
+                            var link = "/list-san-pham/";
 
                             <nav>
                                 <ul class="pagination">
                                     @if (currentPage > ViewBag.First)
                                     {
-                                        <li class="page-item"><a href="@link?page=@ViewBag.First" title="Trang đầu" class="first"><i class="fa fa-angle-double-left"></i></a></li>
+                                        <li class="page-item">
+                                            <a href="@link?page=@ViewBag.First" title="Trang đầu" class="first"><i class="fa fa-angle-double-left"></i></a>
+                                        </li>
                                         <li class="page-item">
                                             <a href="@link?page=@ViewBag.Prev" title="Trang trước" class="prev"><i class="fa fa-angle-left"></i></a>
                                         </li>
@@ -186,4 +188,3 @@
         </div>
     </div>
 </div>
-
