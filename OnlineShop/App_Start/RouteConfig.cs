@@ -38,6 +38,30 @@ namespace OnlineShop
                 namespaces: new[] { "OnlineShop.Controllers" }
             );
             routes.MapRoute(
+                name: "AddCart",
+                url: "them-gio-hang",
+                defaults: new { controller = "Cart", action = "AddItem", id = UrlParameter.Optional },
+                namespaces: new[] { "OnlineShop.Controllers" }
+            );
+            routes.MapRoute(
+                name: "PaymentSuccess",
+                url: "hoan-thanh",
+                defaults: new { controller = "Cart", action = "Success", id = UrlParameter.Optional },
+                namespaces: new[] { "OnlineShop.Controllers" }
+            );
+            routes.MapRoute(
+                name: "Cart",
+                url: "gio-hang",
+                defaults: new { controller = "Cart", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "OnlineShop.Controllers" }
+            );
+            routes.MapRoute(
+                name: "Payment",
+                url: "thanh-toan",
+                defaults: new { controller = "Cart", action = "Payment", id = UrlParameter.Optional },
+                namespaces: new[] { "OnlineShop.Controllers" }
+            );
+            routes.MapRoute(
                 name: "News",
                 url: "tin-tuc",
                 defaults: new { controller = "Content", action = "Index", id = UrlParameter.Optional },
