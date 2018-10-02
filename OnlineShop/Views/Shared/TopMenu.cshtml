@@ -1,14 +1,26 @@
 ﻿@model List<Model.EF.Menu>
 <div class="col-md-9">
-    <ul class="memenu skyblue login" style="float: right;">
-        @foreach (var item in Model)
-        {
-            <li class="grid">
-                <a href="@item.Link" style="color: white;font-size: 13px;">@item.Text</a>
-            </li>
-        }
+    @{
+        var session = (OnlineShop.Common.UserLogin)Session[OnlineShop.Common.CommonConstants.USER_SESSION];
+    }
+    @if (session == null)
+    {
+        <ul class="memenu skyblue login" style="float: right;">
+            @foreach (var item in Model)
+            {
+                <li class="grid">
+                    <a href="@item.Link" style="color: white;font-size: 13px;">@item.Text</a>
+                </li>
+            }
 
+        </ul>
+    }
+    else
+    {
+        <ul>
+            <li style="color:white;float:left;">Xin chào, <span>@session.Name</span></li>
+            <li style="color:white; float:right;">@Html.ActionLink("Thoát", "Logout", "User")</li>
+        </ul>
+    }
 
-
-    </ul>
 </div>

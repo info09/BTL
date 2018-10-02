@@ -61,5 +61,61 @@ namespace OnlineShop.Controllers
             }
             return View(model);
         }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var dao = new UserDao();
+                var result = dao.Login(model.UserName, Encryotor.MD5Hash(model.Password));
+                if (result == 1)
+                {
+                    var user = dao.GetById(model.UserName);
+                    var userSession = new UserLogin();
+                    userSession.UserName = user.UserName;
+                    userSession.UserId = user.ID;
+                    userSession.Name = user.Name;
+                    userSession.Address = user.Address;
+                    userSession.Phone = user.Phone;
+                    userSession.Email = user.Email;
+                    userSession.Avatar = user.Avatar;
+                    Session.Add(CommonConstants.USER_SESSION, userSession);
+                    return Redirect("/");
+                }
+                else if (result == 0)
+                {
+                    ModelState.AddModelError("", "Tài khoản không tồn tại");
+                }
+                else if (result == -1)
+                {
+                    ModelState.AddModelError("", "Tài khoản đang bị khóa");
+                }
+                else if (result == -2)
+                {
+                    ModelState.AddModelError("", "Sai mật khẩu");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Đăng nhập thất bại");
+                }
+            }
+            else
+            {
+
+            }
+            return View(model);
+        }
+
+        public ActionResult Logout()
+        {
+            Session[CommonConstants.USER_SESSION] = null;
+            return Redirect("/");
+        }
     }
 }

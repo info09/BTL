@@ -159,6 +159,8 @@ namespace OnlineShop.Controllers
                 var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
                 new MailHelper().SendMail(email, "Đơn hàng mới từ Luxury Watch", content);
                 new MailHelper().SendMail(toEmail, "Đơn hàng mới từ Luxury Watch", content);
+
+                Session[CartSession] = null;
             }
             catch (Exception)
             {
@@ -177,7 +179,6 @@ namespace OnlineShop.Controllers
             order.ShipEmail = session.Email;
             order.ShipAddress = session.Address;
             order.CustomerID = session.UserId;
-
             try
             {
                 var id = new OrderDao().Insert(order);
@@ -196,7 +197,7 @@ namespace OnlineShop.Controllers
 
                     total += (item.Product.Price.GetValueOrDefault(0) * item.Quantity);
                 }
-                string content = System.IO.File.ReadAllText(Server.MapPath("~/Assets/client/template/neworder.html"));
+                string content = System.IO.File.ReadAllText(Server.MapPath("~/Asset/client/template/newOrder.html"));
 
                 content = content.Replace("{{CustomerName}}", session.UserName);
                 content = content.Replace("{{Phone}}", session.Phone);
@@ -206,8 +207,8 @@ namespace OnlineShop.Controllers
                 //content=content.Replace("{{Name}}",)
                 var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
 
-                new MailHelper().SendMail(session.Email, "Đơn hàng mới từ ShopOfHuy", content);
-                new MailHelper().SendMail(toEmail, "Đơn hàng mới từ ShopOfHuy", content);
+                new MailHelper().SendMail(session.Email, "Đơn hàng mới từ Luxury Watch", content);
+                new MailHelper().SendMail(toEmail, "Đơn hàng mới từ Luxury Watch", content);
 
                 Session[CartSession] = null;
             }
