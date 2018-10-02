@@ -1,8 +1,11 @@
-﻿using Model.Dao;
+﻿using Common;
+using Model.Dao;
 using Model.EF;
+using OnlineShop.Common;
 using OnlineShop.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -129,7 +132,8 @@ namespace OnlineShop.Controllers
             order.ShipMobile = mobile;
             order.ShipAddress = address;
             order.ShipEmail = email;
-
+            
+            decimal total = 0;
             try
             {
                 var id = new OrderDao().Insert(order);
@@ -143,11 +147,72 @@ namespace OnlineShop.Controllers
                     orderDetail.Price = item.Product.Price;
                     orderDetail.Quantity = item.Quantity;
                     detailDao.Insert(orderDetail);
+                    total += (item.Product.Price.GetValueOrDefault(0) * item.Quantity);
                 }
+                string content = System.IO.File.ReadAllText(Server.MapPath("~/Asset/client/template/newOrder.html"));
+                content = content.Replace("{{CustomerName}}", shipName);
+                content = content.Replace("{{Phone}}", mobile);
+                content = content.Replace("{{Email}}", email);
+                content = content.Replace("{{Address}}", address);
+                content = content.Replace("{{Total}}", total.ToString("N0"));
+
+                var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
+                new MailHelper().SendMail(email, "Đơn hàng mới từ Luxury Watch", content);
+                new MailHelper().SendMail(toEmail, "Đơn hàng mới từ Luxury Watch", content);
             }
             catch (Exception)
             {
                 //ghi log
+                return Redirect("/loi-thanh-toan");
+            }
+            return Redirect("/hoan-thanh");
+        }
+
+        public ActionResult PaymentUser()
+        {
+            var session = (UserLogin)Session[CommonConstants.USER_SESSION];
+            var order = new Order();
+            order.ShipName = session.Name;
+            order.ShipMobile = session.Phone;
+            order.ShipEmail = session.Email;
+            order.ShipAddress = session.Address;
+            order.CustomerID = session.UserId;
+
+            try
+            {
+                var id = new OrderDao().Insert(order);
+                var cart = (List<CartItem>)Session[CartSession];
+
+                var detailDao = new OrderDetailDao();
+                decimal total = 0;
+                foreach (var item in cart)
+                {
+                    var orderDetail = new OrderDetail();
+                    orderDetail.ProductID = item.Product.ID;
+                    orderDetail.OrderID = id;
+                    orderDetail.Price = item.Product.Price;
+                    orderDetail.Quantity = item.Quantity;
+                    detailDao.Insert(orderDetail);
+
+                    total += (item.Product.Price.GetValueOrDefault(0) * item.Quantity);
+                }
+                string content = System.IO.File.ReadAllText(Server.MapPath("~/Assets/client/template/neworder.html"));
+
+                content = content.Replace("{{CustomerName}}", session.UserName);
+                content = content.Replace("{{Phone}}", session.Phone);
+                content = content.Replace("{{Email}}", session.Email);
+                content = content.Replace("{{Address}}", session.Address);
+                content = content.Replace("{{Total}}", total.ToString("N0"));
+                //content=content.Replace("{{Name}}",)
+                var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
+
+                new MailHelper().SendMail(session.Email, "Đơn hàng mới từ ShopOfHuy", content);
+                new MailHelper().SendMail(toEmail, "Đơn hàng mới từ ShopOfHuy", content);
+
+                Session[CartSession] = null;
+            }
+            catch
+            {
                 return Redirect("/loi-thanh-toan");
             }
             return Redirect("/hoan-thanh");

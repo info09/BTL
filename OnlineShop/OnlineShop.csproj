@@ -186,6 +186,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -7744,6 +7745,7 @@
     <Content Include="Asset\client\js\memenu.js" />
     <Content Include="Asset\client\js\responsiveslides.min.js" />
     <Content Include="Asset\client\js\simpleCart.min.js" />
+    <Content Include="Asset\client\template\newOrder.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />

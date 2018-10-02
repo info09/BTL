@@ -1,6 +1,7 @@
 ﻿using Model.Dao;
 using Model.EF;
 using OnlineShop.Common;
+using OnlineShop.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +46,6 @@ namespace OnlineShop.Areas.Admin.Controllers
                     SetAlert("Thêm user không thành công", "error");
                     ModelState.AddModelError("", "Thêm user không thành công");
                 }
-
             }
             return View("Index");
         }
@@ -94,7 +94,7 @@ namespace OnlineShop.Areas.Admin.Controllers
             var result = new UserDao().ChangeStauts(id);
             return Json(new
             {
-                status=result
+                status = result
             });
         }
     }

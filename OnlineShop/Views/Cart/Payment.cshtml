@@ -3,7 +3,9 @@
     ViewBag.Title = "Thông tin thanh toán";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@{ 
+    var session = (OnlineShop.Common.UserLogin)Session[OnlineShop.Common.CommonConstants.USER_SESSION];
+}
 
 <div class="breadcrumbs">
     <div class="container">
@@ -49,35 +51,42 @@
 
                     </tbody>
                 </table>
-                
-            }
-            
-        </div>
 
-        <div class="prdt">
-            <div class="col-md-6">
-                @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
-                {
-                    <div class="form-group">
-                        <label>Người nhận:</label>
-                        <input name="shipName" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label>Điện thoại:</label>
-                        <input name="mobile" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label>Địa chỉ:</label>
-                        <input name="address" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label>Email:</label>
-                        <input name="email" class="form-control" />
-                    </div>
-                    <button type="submit" class="btn">Gửi đơn hàng</button>
-                }
-            </div>
-            
+            }
+
         </div>
+        @if (session == null)
+        {
+            <div class="prdt">
+                <div class="col-md-6">
+                    @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <label>Người nhận:</label>
+                            <input name="shipName" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Điện thoại:</label>
+                            <input name="mobile" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Địa chỉ:</label>
+                            <input name="address" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Email:</label>
+                            <input name="email" class="form-control" />
+                        </div>
+                        <button type="submit" class="btn">Gửi đơn hàng</button>
+                    }
+                </div>
+
+            </div>
+        }
+        else
+        {
+            @Html.ActionLink("Gửi đơn hàng", "PaymentUser", "Cart")
+        }
+
     </div>
 </div>
