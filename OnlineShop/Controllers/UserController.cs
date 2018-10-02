@@ -1,0 +1,65 @@
+﻿using BotDetect.Web.Mvc;
+using Model.Dao;
+using Model.EF;
+using OnlineShop.Common;
+using OnlineShop.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace OnlineShop.Controllers
+{
+    public class UserController : Controller
+    {
+        // GET: User
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [CaptchaValidation("CaptchaCode", "registerCaptcha", "Mã xác nhận không đúng")]
+        public ActionResult Register(RegisterModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var dao = new UserDao();
+                if (dao.checkUserName(model.UserName))
+                {
+                    ModelState.AddModelError("", "Tài khoản đã tồn tại");
+                }
+                else if (dao.checkEmail(model.Email))
+                {
+                    ModelState.AddModelError("", "Email đã tồn tại");
+                }
+                else
+                {
+                    var user = new User();
+                    user.Name = model.Name;
+                    user.UserName = model.UserName;
+                    user.Password = Encryotor.MD5Hash(model.Password);
+                    user.Phone = model.Phone;
+                    user.Email = model.Email;
+                    user.CreatedDate = DateTime.Now;
+                    user.Address = model.Address;
+                    user.Status = true;
+                    user.Avatar = model.Avater;
+                    var result= dao.Insert(user);
+                    if (result > 0)
+                    {
+                        ViewBag.Success = "Đăng ký thành công";
+                        model = new RegisterModel();
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Đăng ký không thành công");
+                    }
+                }
+            }
+            return View(model);
+        }
+    }
+}

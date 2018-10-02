@@ -31,6 +31,10 @@ namespace OnlineShop
                defaults: new { controller = "Product", action = "Index", id = UrlParameter.Optional },
                namespaces: new[] { "OnlineShop.Controllers" }
            );
+
+            routes.IgnoreRoute("{*botdetect}",
+              new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
+
             routes.MapRoute(
                 name: "Content",
                 url: "tin-tuc/{metatitle}-{id}",
@@ -59,6 +63,12 @@ namespace OnlineShop
                 name: "Payment",
                 url: "thanh-toan",
                 defaults: new { controller = "Cart", action = "Payment", id = UrlParameter.Optional },
+                namespaces: new[] { "OnlineShop.Controllers" }
+            );
+            routes.MapRoute(
+                name: "Register",
+                url: "dang-ky",
+                defaults: new { controller = "User", action = "Register", id = UrlParameter.Optional },
                 namespaces: new[] { "OnlineShop.Controllers" }
             );
             routes.MapRoute(
