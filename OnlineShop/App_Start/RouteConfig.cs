@@ -26,6 +26,12 @@ namespace OnlineShop
                namespaces: new[] { "OnlineShop.Controllers" }
            );
             routes.MapRoute(
+               name: "Product Search",
+               url: "tim-kiem",
+               defaults: new { controller = "Product", action = "Search", id = UrlParameter.Optional },
+               namespaces: new[] { "OnlineShop.Controllers" }
+           );
+            routes.MapRoute(
                name: "san pham",
                url: "list-san-pham",
                defaults: new { controller = "Product", action = "Index", id = UrlParameter.Optional },

@@ -7709,6 +7709,7 @@
     <Content Include="Asset\client\css\bootstrap.css" />
     <Content Include="Asset\client\css\flexslider.css" />
     <Content Include="Asset\client\css\font-awesome.min.css" />
+    <Content Include="Asset\client\css\jquery-ui.css" />
     <Content Include="Asset\client\css\memenu.css" />
     <Content Include="Asset\client\css\style.css" />
     <Content Include="Asset\client\fonts\fontawesome-webfont.svg" />
@@ -7745,9 +7746,11 @@
     <Content Include="Asset\client\images\search.png" />
     <Content Include="Asset\client\images\star.png" />
     <Content Include="Asset\client\images\tick.png" />
+    <Content Include="Asset\client\js\controller\baseController.js" />
     <Content Include="Asset\client\js\controller\cartController.js" />
     <Content Include="Asset\client\js\imagezoom.js" />
     <Content Include="Asset\client\js\jquery-1.11.0.min.js" />
+    <Content Include="Asset\client\js\jquery-ui.js" />
     <Content Include="Asset\client\js\jquery.easydropdown.js" />
     <Content Include="Asset\client\js\jquery.flexslider.js" />
     <Content Include="Asset\client\js\memenu.js" />
@@ -9108,6 +9111,7 @@
     <Content Include="Views\Cart\Success.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Product\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
