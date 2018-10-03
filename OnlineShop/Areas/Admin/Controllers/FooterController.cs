@@ -8,12 +8,12 @@ using System.Web.Mvc;
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
-    public class ProductController : BaseController
+    public class FooterController : BaseController
     {
-        // GET: Admin/Product
+        // GET: Admin/Footer
         public ActionResult Index(string searchString, int page = 1, int pageSize = 5)
         {
-            var dao = new ProductDao();
+            var dao = new FooterDao();
             var model = dao.ListAllPaging(searchString, page, pageSize);
             ViewBag.SearchString = searchString;
             return View(model);
@@ -23,22 +23,21 @@ namespace OnlineShop.Areas.Admin.Controllers
         [ValidateInput(false)]
         public ActionResult Create()
         {
-            SetViewBag();
             return View();
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create(Product model)
+        public ActionResult Create(Footer model)
         {
             if (ModelState.IsValid)
             {
-                var dao = new ProductDao();
-                long id = dao.Insert(model);
-                if (id > 0)
+                var dao = new FooterDao();
+                string id = dao.Insert(model);
+                if (id!=null)
                 {
                     SetAlert("Thêm thông tin thành công", "success");
-                    return RedirectToAction("Index", "Product");
+                    return RedirectToAction("Index", "Footer");
                 }
                 else
                 {
@@ -46,55 +45,44 @@ namespace OnlineShop.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Thêm thông tin không thành công");
                 }
             }
-            SetViewBag();
             return View();
         }
 
         [HttpGet]
         [ValidateInput(false)]
-        public ActionResult Edit(long id)
+        public ActionResult Edit(string id)
         {
-            var dao = new ProductDao();
+            var dao = new FooterDao();
             var product = dao.GetById(id);
-
-            SetViewBag(product.CategoryID);
-
             return View(product);
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Edit(Product model)
+        public ActionResult Edit(Footer model)
         {
             if (ModelState.IsValid)
             {
-                var dao = new ProductDao();
+                var dao = new FooterDao();
 
                 var result = dao.Update(model);
                 if (result)
                 {
                     SetAlert("Update content thành công", "success");
-                    return RedirectToAction("Index", "Product");
+                    return RedirectToAction("Index", "Footer");
                 }
                 else
                 {
                     ModelState.AddModelError("", "Cập nhật content không thành công");
                 }
             }
-            SetViewBag(model.CategoryID);
             return View();
-        }
-
-        public void SetViewBag(long? selectedId = null)
-        {
-            var dao = new ProductCategoryDao();
-            ViewBag.CategoryID = new SelectList(dao.ListAll(), "ID", "Name", selectedId);
         }
 
         [HttpDelete]
         public ActionResult Delete(int id)
         {
-            new ProductDao().Delete(id);
+            new FooterDao().Delete(id);
             return RedirectToAction("Index");
         }
     }

@@ -194,7 +194,5 @@ namespace Model.EF
                 .Property(e => e.ID)
                 .IsUnicode(false);
         }
-
-        public System.Data.Entity.DbSet<Model.ViewModel.ProductViewModel> ProductViewModels { get; set; }
     }
 }
