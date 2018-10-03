@@ -31,6 +31,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="/Asset/client/js/jquery.easydropdown.js"></script>
 </head>
 <body>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.1&appId=322366454995800&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+    (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- Your customer chat code -->
+    <div class="fb-customerchat"
+         attribution=setup_tool
+         page_id="332534744173294"
+         theme_color="#ff5ca1"
+         logged_in_greeting="Xin chào, Bạn cần hỗ trợ gì?"
+         logged_out_greeting="Xin chào, Bạn cần hỗ trợ gì?">
+    </div>
     <!--top-header-->
     <div class="top-header">
         <div class="container">
@@ -65,15 +94,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="col-md-3 header-right">
                     @*<div class="cart box_1">
-                        <a href="checkout.html">
-                            <div class="total">
-                                <span class="simpleCart_total">0 Sản phẩm</span>
-                            </div>
-                            <i class="fa fa-shopping-cart"></i>
-                        </a>
-                        <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
-                        <div class="clearfix"> </div>
-                    </div>*@
+                            <a href="checkout.html">
+                                <div class="total">
+                                    <span class="simpleCart_total">0 Sản phẩm</span>
+                                </div>
+                                <i class="fa fa-shopping-cart"></i>
+                            </a>
+                            <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+                            <div class="clearfix"> </div>
+                        </div>*@
                 </div>
                 <div class="col-md-3 header-right">
                     <div class="search-bar">
@@ -113,9 +142,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <!--End-slider-script-->
     <!--about-starts-->
-    @RenderSection("about",required:false)
+    @RenderSection("about", required: false)
 
-    @RenderSection("productCategory",required:false)
+    @RenderSection("productCategory", required: false)
     <!--about-end-->
     <!--product-starts-->
     @RenderBody()
@@ -123,6 +152,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--information-starts-->
     @{ Html.RenderAction("Footer", "Home");}
     <!--footer-end-->
-    @RenderSection("jsFooter",required:false)
+    @RenderSection("jsFooter", required: false)
 </body>
 </html>
