@@ -187,6 +187,7 @@
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -7750,6 +7751,7 @@
     <Content Include="Asset\client\images\tick.png" />
     <Content Include="Asset\client\js\controller\baseController.js" />
     <Content Include="Asset\client\js\controller\cartController.js" />
+    <Content Include="Asset\client\js\controller\contactController.js" />
     <Content Include="Asset\client\js\imagezoom.js" />
     <Content Include="Asset\client\js\jquery-1.11.0.min.js" />
     <Content Include="Asset\client\js\jquery-ui.js" />
@@ -9120,6 +9122,7 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Product\Search.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
