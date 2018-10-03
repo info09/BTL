@@ -227,5 +227,10 @@ namespace Model.Dao
         {
             return db.Tags.Find(id);
         }
+
+        public List<Content> ListAll()
+        {
+            return db.Contents.Where(x => x.Status == true).OrderByDescending(x=>x.CreatedDate).ToList();
+        }
     }
 }

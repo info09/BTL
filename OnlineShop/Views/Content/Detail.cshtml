@@ -2,36 +2,83 @@
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var productCategory = (List<Model.EF.ProductCategory>)ViewBag.ProductCategory;
 }
 <div class="breadcrumbs">
     <div class="container">
         <div class="breadcrumbs-main">
             <ol class="breadcrumb">
-                <li class="active">@Model.Name</li>
+                <li><a href="/">Trang chủ</a></li>
+                <li class="active">Tin tức</li>
             </ol>
         </div>
     </div>
 </div>
-<div class="clear"></div>
-<div class="container">
-    <div class="content">
+<br />
 
-        <div class="clear"></div>
-    </div>
-    <div class="section-group">
-        @Html.Raw(Model.Detail)
-        <ul>
-            
+<div class="container no-padding">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="col-lg-9">
+                    <div class="row">
 
-            @{
-                var tag = (List<Model.EF.Tag>)ViewBag.Tags;
-                foreach (var item in tag)
-                {
-                    <li><a href="/tag/@item.ID">@item.Name</a></li>
-                }
-            }
-        </ul>
+                        <div class="col-lg-12" style="margin-top: 10px;">
+                            <div class="row">
+                                <div class="col-lg-12 no-padding">
+                                    <h3 class="page-header no-margin"><i class="fa fa-book"></i> @Model.Name</h3>
+                                    @Html.Raw(Model.Detail)
+                                    <span style="font-weight:bold;">Tag:</span>
+
+
+                                    @{
+                                        var tag = (List<Model.EF.Tag>)ViewBag.Tags;
+                                        foreach (var item in tag)
+                                        {
+                                            <a href="/tag/@item.ID">@item.Name</a> <span>,</span>
+                                        }
+                                    }
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 single-right">
+                <div class="w_sidebar">
+                    <section class="sky-form">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <h4 class="title-box">Danh mục sản phẩm</h4>
+                                <div class="column">
+
+                                    <ul class="nav nav-pills nav-stacked">
+                                        @foreach (var item in productCategory)
+                                        {
+                                            <li class="even mul">
+                                                <a href="/san-pham/@item.MetaTitle-@item.ID">
+                                                    <span>@item.Name</span>
+                                                </a>
+                                            </li>
+                                        }
+
+
+
+
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </section>
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
+<br />
 

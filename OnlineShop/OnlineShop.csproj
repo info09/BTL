@@ -7714,6 +7714,7 @@
     <Content Include="Asset\client\css\font-awesome.min.css" />
     <Content Include="Asset\client\css\jquery-ui.css" />
     <Content Include="Asset\client\css\memenu.css" />
+    <Content Include="Asset\client\css\news.css" />
     <Content Include="Asset\client\css\style.css" />
     <Content Include="Asset\client\fonts\fontawesome-webfont.svg" />
     <Content Include="Asset\client\images\11.png" />

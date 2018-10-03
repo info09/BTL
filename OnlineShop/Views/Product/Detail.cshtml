@@ -22,7 +22,7 @@
 <div class="single contact">
     <div class="container">
         <div class="single-main">
-            <div class="col-md-9 single-main-left">
+            <div class="col-md-8 single-main-left">
                 <div class="sngl-top">
                     <div class="col-md-4 single-top-left">
                         <div class="flexslider">
@@ -88,20 +88,34 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 single-right">
+            <div class="col-md-4 single-right">
                 <div class="w_sidebar">
                     <section class="sky-form">
-                        <h4>Danh mục sản phẩm</h4>
-                        <div class="row1 scroll-pane">
-                            @foreach (var item in productCategory)
-                            {
-                                <div class="col col-4">
-                                    <label><a href="/san-pham/@item.MetaTitle-@item.ID">@item.Name</a></label>
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <h4 class="title-box">Danh mục sản phẩm</h4>
+                                <div class="column">
+
+                                    <ul class="nav nav-pills nav-stacked">
+                                        @foreach (var item in productCategory)
+                                        {
+                                            <li class="even mul">
+                                                <a href="/san-pham/@item.MetaTitle-@item.ID">
+                                                    <span>@item.Name</span>
+                                                </a>
+                                            </li>
+                                        }
+
+
+
+
+                                    </ul>
 
                                 </div>
-                            }
-
+                            </div>
                         </div>
+
+
                     </section>
 
                 </div>
