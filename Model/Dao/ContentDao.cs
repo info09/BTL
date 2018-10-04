@@ -228,9 +228,9 @@ namespace Model.Dao
             return db.Tags.Find(id);
         }
 
-        public List<Content> ListAll()
+        public List<Content> ListAll(int top)
         {
-            return db.Contents.Where(x => x.Status == true).OrderByDescending(x=>x.CreatedDate).ToList();
+            return db.Contents.OrderByDescending(x => x.CreatedDate).Take(top).ToList();
         }
     }
 }

@@ -13,6 +13,7 @@ namespace OnlineShop.Controllers
         public ActionResult Index(int page=1, int pageSize=6)
         {
             ViewBag.ProductCategory = new ProductCategoryDao().ListAll();
+            ViewBag.Content = new ContentDao().ListAll(4);
             int totalRecord = 0;
             var model = new ProductDao().ListAllProduct(ref totalRecord, page, pageSize);
             ViewBag.TotalPage = totalRecord;
@@ -43,6 +44,7 @@ namespace OnlineShop.Controllers
             var category = new ProductCategoryDao().ViewDetail(id);
             ViewBag.Category = category;
             ViewBag.ProductCategory = new ProductCategoryDao().ListAll();
+            ViewBag.Content = new ContentDao().ListAll(4);
             int totalRecord = 0;
             var model = new ProductDao().ListProductByCategory(id,ref totalRecord,page,pageSize);
 
@@ -68,6 +70,7 @@ namespace OnlineShop.Controllers
             ViewBag.Category = new ProductCategoryDao().ViewDetail(product.CategoryID.Value);
             ViewBag.RelateProduct = new ProductDao().ListRelateProduct(id,3);
             ViewBag.ProductCategory = new ProductCategoryDao().ListAll();
+            ViewBag.Content = new ContentDao().ListAll(4);
             return View(product);
         }
 
@@ -85,6 +88,7 @@ namespace OnlineShop.Controllers
         {
             ViewBag.Keyword = keyword;
             ViewBag.ProductCategory = new ProductCategoryDao().ListAll();
+            ViewBag.Content = new ContentDao().ListAll(4);
             int totalRecord = 0;
             var model = new ProductDao().Search(keyword, ref totalRecord, page, pageSize);
 

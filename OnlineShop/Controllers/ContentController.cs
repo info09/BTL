@@ -13,7 +13,7 @@ namespace OnlineShop.Controllers
         public ActionResult Index(int page=1, int pageSize=5)
         {
             ViewBag.ProductCategory = new ProductCategoryDao().ListAll();
-            ViewBag.Content = new ContentDao().ListAll();
+            ViewBag.Content = new ContentDao().ListAll(4);
             var model = new ContentDao().ListAllPaging(page, pageSize);
             int totalRecord = 0;
 
@@ -38,6 +38,7 @@ namespace OnlineShop.Controllers
             ViewBag.ProductCategory = new ProductCategoryDao().ListAll();
             var model = new ContentDao().GetById(id);
             ViewBag.Tags = new ContentDao().ListTag(id);
+            ViewBag.Content = new ContentDao().ListAll(4);
             return View(model);
         }
 
