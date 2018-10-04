@@ -6,6 +6,7 @@
     var productCategory = (List<Model.EF.ProductCategory>)ViewBag.ProductCategory;
     var listNewProduct = (List<Model.EF.Product>)ViewBag.newProduct;
     var listFeatureProduct = (List<Model.EF.Product>)ViewBag.featureProduct;
+    var about = (List<Model.EF.About>)ViewBag.About;
 }
 @section slide{
 
@@ -29,33 +30,19 @@
     <div class="about">
         <div class="container">
             <div class="about-top grid-1">
-                <div class="col-md-4 about-left">
-                    <figure class="effect-bubba">
-                        <img class="img-responsive" src="/Asset/client/images/abt-1.jpg" alt="" />
-                        <figcaption>
-                            <h2>Nulla maximus nunc</h2>
-                            <p>In sit amet sapien eros Integer dolore magna aliqua</p>
-                        </figcaption>
-                    </figure>
-                </div>
-                <div class="col-md-4 about-left">
-                    <figure class="effect-bubba">
-                        <img class="img-responsive" src="/Asset/client/images/abt-2.jpg" alt="" />
-                        <figcaption>
-                            <h4>Mauris erat augue</h4>
-                            <p>In sit amet sapien eros Integer dolore magna aliqua</p>
-                        </figcaption>
-                    </figure>
-                </div>
-                <div class="col-md-4 about-left">
-                    <figure class="effect-bubba">
-                        <img class="img-responsive" src="/Asset/client/images/abt-3.jpg" alt="" />
-                        <figcaption>
-                            <h4>Cras elit mauris</h4>
-                            <p>In sit amet sapien eros Integer dolore magna aliqua</p>
-                        </figcaption>
-                    </figure>
-                </div>
+                @foreach (var item in about)
+                {
+
+                    <div class="col-md-4 about-left">
+                        <figure class="effect-bubba">
+                            <img class="img-responsive" src="@item.Image" alt="" />
+                            <figcaption>
+                                <h2>@item.Name</h2>
+                                <p>@item.Description</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                }
                 <div class="clearfix"></div>
             </div>
         </div>

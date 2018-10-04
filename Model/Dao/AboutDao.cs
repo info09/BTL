@@ -16,6 +16,11 @@ namespace Model.Dao
             db = new OnlineShopDbContext();
         }
 
+        public List<About> ListAll()
+        {
+            return db.Abouts.Where(x => x.Status == true).OrderByDescending(x=>x.CreatedDate).ToList();
+        }
+
         public IEnumerable<About> ListAllPaging(string searchString, int page, int pageSize)
         {
             IQueryable<About> model = db.Abouts.OrderByDescending(x => x.CreatedDate);

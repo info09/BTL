@@ -14,6 +14,7 @@ namespace OnlineShop.Controllers
         {
             ViewBag.Slides = new SlideDao().ListAll();
             ViewBag.ProductCategory = new ProductCategoryDao().ListAll();
+            ViewBag.About = new AboutDao().ListAll();
             var dao = new ProductDao();
             ViewBag.newProduct = dao.ListNewProduct(4);
             ViewBag.featureProduct = dao.ListFeatureProduct(4);
