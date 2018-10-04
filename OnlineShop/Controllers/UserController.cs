@@ -47,6 +47,7 @@ namespace OnlineShop.Controllers
                     user.Address = model.Address;
                     user.Status = true;
                     user.Avatar = model.Avater;
+                    user.GroupId = "MEMBER";
                     var result= dao.Insert(user);
                     if (result > 0)
                     {

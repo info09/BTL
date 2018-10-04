@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PagedList.Mvc;
 using PagedList;
+using Common;
 
 namespace Model.Dao
 {
@@ -35,7 +36,7 @@ namespace Model.Dao
             return db.Users.SingleOrDefault(x => x.UserName == userName);
         }
 
-        public int Login(string userName, string passWord)
+        public int Login(string userName, string passWord, bool isLoginAdmin = false)
         {
             var result = db.Users.SingleOrDefault(x => x.UserName == userName);
             if (result == null)
@@ -44,19 +45,39 @@ namespace Model.Dao
             }
             else
             {
-                if (result.Status == false)
+                if (isLoginAdmin == true)
                 {
-                    return -1;
-                }
-                else
-                {
-                    if (result.Password == passWord)
+                    if (result.GroupId == CommonConstant.ADMIN_GROUP || result.GroupId == CommonConstant.MOD_GROUP)
                     {
-                        return 1;
+                        if (result.Status == false)
+                        {
+                            return -1;
+                        }
+                        else
+                        {
+                            if (result.Password == passWord)
+                                return 1;
+                            else
+                                return -2;
+                        }
                     }
                     else
                     {
-                        return -2;
+                        return -3;
+                    }
+                }
+                else
+                {
+                    if (result.Status == false)
+                    {
+                        return -1;
+                    }
+                    else
+                    {
+                        if (result.Password == passWord)
+                            return 1;
+                        else
+                            return -2;
                     }
                 }
             }
@@ -133,6 +154,26 @@ namespace Model.Dao
             user.Status = !user.Status;
             db.SaveChanges();
             return user.Status;
+        }
+
+        public List<string> GetListCredential(string userName)
+        {
+            var user = db.Users.Single(x => x.UserName == userName);
+            var data = (from a in db.Credentials
+                        join b in db.UserGroups on a.UserGroupID equals b.ID
+                        join c in db.Roles on a.RoleID equals c.ID
+                        where b.ID == user.GroupId
+                        select new
+                        {
+                            RoleID = a.RoleID,
+                            UserGroupID = a.UserGroupID
+                        }).AsEnumerable().Select(x => new Credential()
+                        {
+                            RoleID = x.RoleID,
+                            UserGroupID = x.UserGroupID
+                        });
+            return data.Select(x => x.RoleID).ToList();
+
         }
     }
 }

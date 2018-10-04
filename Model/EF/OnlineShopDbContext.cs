@@ -32,6 +32,8 @@ namespace Model.EF
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserGroup> UserGroups { get; set; }
 
+        public virtual DbSet<Credential> Credentials { set; get; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<About>()

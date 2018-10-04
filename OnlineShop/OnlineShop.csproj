@@ -187,6 +187,7 @@
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Common\HasCredentialAttribute.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -9089,6 +9090,7 @@
     <Content Include="Areas\Admin\Views\About\Index.cshtml" />
     <Content Include="Areas\Admin\Views\About\Create.cshtml" />
     <Content Include="Areas\Admin\Views\About\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\401.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

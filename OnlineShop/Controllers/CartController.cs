@@ -179,6 +179,7 @@ namespace OnlineShop.Controllers
             order.ShipEmail = session.Email;
             order.ShipAddress = session.Address;
             order.CustomerID = session.UserId;
+            order.CreatedDate = DateTime.Now;
             try
             {
                 var id = new OrderDao().Insert(order);

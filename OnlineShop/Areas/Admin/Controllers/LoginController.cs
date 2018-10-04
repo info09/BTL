@@ -22,7 +22,7 @@ namespace OnlineShop.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dao = new UserDao();
-                var result = dao.Login(model.UserName, Encryotor.MD5Hash(model.Password));
+                var result = dao.Login(model.UserName, Encryotor.MD5Hash(model.Password),true);
                 if (result == 1)
                 {
                     var user = dao.GetById(model.UserName);
@@ -33,7 +33,10 @@ namespace OnlineShop.Areas.Admin.Controllers
                     userSession.Address = user.Address;
                     userSession.Phone = user.Phone;
                     userSession.Email = user.Email;
+                    userSession.GroupId = user.GroupId;
                     userSession.Avatar = user.Avatar;
+                    var listCredential = dao.GetListCredential(model.UserName);
+                    Session.Add(CommonConstants.SESSION_CREDENTIALS, listCredential);
                     Session.Add(CommonConstants.USER_SESSION, userSession);
                     return RedirectToAction("Index", "Home");
                 }
@@ -48,6 +51,10 @@ namespace OnlineShop.Areas.Admin.Controllers
                 else if (result == -2)
                 {
                     ModelState.AddModelError("", "Sai mật khẩu");
+                }
+                else if (result == -3)
+                {
+                    ModelState.AddModelError("", "Tài khoản không có quyền đăng nhập");
                 }
                 else
                 {

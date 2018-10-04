@@ -12,6 +12,8 @@ namespace OnlineShop.Common
 
         public string UserName { get; set; }
 
+        public string GroupId { set; get; }
+
         public string Name { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }

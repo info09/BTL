@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+@section header{
+    <h1>
+        Lỗi truy cập
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/Admin/Home/Index"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+        <li><a href="#">Hệ thống</a></li>
+        <li class="active">Người dùng</li>
+    </ol>
+}
+    <hr />
+<div class="alert alert-danger">
+    Bạn không có quyền truy cập
+</div>
+

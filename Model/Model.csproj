@@ -73,6 +73,7 @@
     <Compile Include="EF\Contact.cs" />
     <Compile Include="EF\Content.cs" />
     <Compile Include="EF\ContentTag.cs" />
+    <Compile Include="EF\Credential.cs" />
     <Compile Include="EF\Feedback.cs" />
     <Compile Include="EF\Footer.cs" />
     <Compile Include="EF\Menu.cs" />
