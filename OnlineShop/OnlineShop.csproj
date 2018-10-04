@@ -175,6 +175,7 @@
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContentController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FeedbackController.cs" />
     <Compile Include="Areas\Admin\Controllers\FooterController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
@@ -9083,6 +9084,7 @@
     <Content Include="Areas\Admin\Views\Menu\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Menu\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Menu\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Feedback\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
