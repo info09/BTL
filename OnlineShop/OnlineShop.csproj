@@ -183,6 +183,7 @@
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SlideController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
@@ -9091,6 +9092,9 @@
     <Content Include="Areas\Admin\Views\About\Create.cshtml" />
     <Content Include="Areas\Admin\Views\About\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\401.cshtml" />
+    <Content Include="Areas\Admin\Views\Slide\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Slide\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Slide\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
