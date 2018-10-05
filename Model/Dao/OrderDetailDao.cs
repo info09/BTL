@@ -1,4 +1,6 @@
 ﻿using Model.EF;
+using Model.ViewModel;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +29,27 @@ namespace Model.Dao
             {
                 return false;
             }
+        }
+
+        public IEnumerable<OrderViewModel> Order(DateTime? date, int page, int pageSize)
+        {
+            var data = (from a in db.OrderDetails
+                        join b in db.Products
+                        on a.ProductID equals b.ID
+                        join c in db.Orders
+                        on a.OrderID equals c.ID
+                        select new OrderViewModel()
+                        {
+                            Name = b.Name,
+                            Quantity = a.Quantity,
+                            ShipName = c.ShipName,
+                            ShipAddress = c.ShipAddress,
+                            ShipEmail = c.ShipEmail,
+                            ShipMobile = c.ShipMobile,
+                            Price = a.Price,
+                            CreatedDate=c.CreatedDate
+                        });
+            return data.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
     }
 }
