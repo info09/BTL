@@ -52,15 +52,15 @@
     <div class="header-bottom">
         <div class="container">
             <div class="header">
-                <div class="col-md-9 header-left">
-                    <div class="top-nav">
+                <div class="col-md-6 header-left">
+                    <div class="top-nav" @*style="color:white;background-color:black;line-height:30px;"*@>
                         <ul class="memenu skyblue">
                             @foreach (var item in productCategory)
                             {
-                                <li class="grid">
-                                    <a href="/san-pham/@item.MetaTitle-@item.ID">@item.Name</a>
+                                    <li class="grid">
+                                        <a href="/san-pham/@item.MetaTitle-@item.ID" style=" padding-left:20px;@*border-right:1px solid #ddd;*@">@item.Name</a>
+                                    </li>
 
-                                </li>
                             }
 
 

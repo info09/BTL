@@ -68,7 +68,7 @@ namespace OnlineShop.Controllers
                 //Lưu vào session
                 Session[CartSession] = list;
             }
-            return RedirectToAction("Index");
+            return Redirect("/");
         }
 
         public JsonResult Update(string cartModel)

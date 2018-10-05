@@ -7754,6 +7754,7 @@
     <Content Include="Asset\client\images\search.png" />
     <Content Include="Asset\client\images\star.png" />
     <Content Include="Asset\client\images\tick.png" />
+    <Content Include="Asset\client\js\bootstrap.js" />
     <Content Include="Asset\client\js\controller\baseController.js" />
     <Content Include="Asset\client\js\controller\cartController.js" />
     <Content Include="Asset\client\js\controller\contactController.js" />

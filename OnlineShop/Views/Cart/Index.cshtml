@@ -25,36 +25,45 @@
             {
                 <table class="table">
                     <thead>
-                        <tr>
-                            <td>Mã sản phẩm</td>
-                            <td>Tên sản phẩm</td>
-                            <td>Ảnh sản phẩm</td>
-                            <td>Số lượng</td>
-                            <td>Đơn giá</td>
-                            <td>Thành tiền</td>
-                            <td></td>
+                        <tr style="background-color:darkblue;color:white; font-weight:bold;">
+                            <td class="text-center" style="border:1px solid #ddd">Mã sản phẩm</td>
+                            <td class="text-center" style="border:1px solid #ddd">Tên sản phẩm</td>
+                            <td class="text-center" style="border:1px solid #ddd">Hình ảnh</td>
+                            <td class="text-center" style="border:1px solid #ddd">Số lượng</td>
+                            <td class="text-center" style="border:1px solid #ddd">Đơn giá</td>
+                            <td class="text-center" style="border:1px solid #ddd">Thành tiền</td>
+                            <td class="text-center" style="border:1px solid #ddd"></td>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>@item.Product.ID</td>
-                                <td>@item.Product.Name</td>
-                                <td><img src="@item.Product.Image" width="80" height="128" alt="Alternate Text" /></td>
-                                <td><input type="text" class="txtQuantity" data-id="@item.Product.ID" value="@item.Quantity" /></td>
-                                <td>@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
-                                <td>@((item.Product.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
-                                <td><a href="#" data-id="@item.Product.ID" class="btn-delete"><i class="fa fa-trash-o fa-2x"></i></a></td>
+                                <td class="text-center" style="border:1px solid #ddd">@item.Product.ID</td>
+                                <td class="text-center" style="border:1px solid #ddd">@item.Product.Name</td>
+                                <td class="text-center" style="border:1px solid #ddd"><img src="@item.Product.Image" width="80" height="128" alt="Alternate Text" /></td>
+                                <td class="text-center" style="border:1px solid #ddd"><input type="number" size="3" class="txtQuantity" data-id="@item.Product.ID" value="@item.Quantity" /></td>
+                                <td class="text-center" style="border:1px solid #ddd">@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
+                                <td class="text-center" style="border:1px solid #ddd">
+                                    @if (item.Quantity > 0)
+                                    {
+                                        @((item.Product.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))
+                                    }
+                                    else
+                                    {
+                                        @item.Product.Price.GetValueOrDefault(0).ToString("N0")
+                                    }
+                                </td>
+                                <td class="text-center" style="border:1px solid #ddd"><a href="#" data-id="@item.Product.ID" class="btn-delete"><i class="fa fa-trash-o fa-2x" style="color:#ff0000;"></i></a></td>
                             </tr>
                         }
 
                     </tbody>
                 </table>
-                <button id="btnContinue" class="btn">Tiếp tục mua hàng</button>
-                <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
-                <button id="btnDeleteAll" class="btn">Xóa giỏ hàng</button>
-                <button id="btnPayment" class="btn">Thanh toán</button>
+                <button id="btnContinue" class="btn btn-primary">Tiếp tục mua hàng</button>
+                <button id="btnUpdate" class="btn btn-primary">Cập nhật giỏ hàng</button>
+                <button id="btnDeleteAll" class="btn btn-danger">Xóa giỏ hàng</button>
+                <button id="btnPayment" class="btn btn-success">Thanh toán</button>
             }
             else
             {
