@@ -7714,7 +7714,9 @@
     <Content Include="Asset\admin\plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="Asset\admin\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Asset\admin\plugins\timepicker\bootstrap-timepicker.min.js" />
+    <Content Include="Asset\client\css\bootstrap-theme.css" />
     <Content Include="Asset\client\css\bootstrap.css" />
+    <Content Include="Asset\client\css\bootstrap.min.css" />
     <Content Include="Asset\client\css\flexslider.css" />
     <Content Include="Asset\client\css\font-awesome.min.css" />
     <Content Include="Asset\client\css\jquery-ui.css" />
@@ -7756,11 +7758,13 @@
     <Content Include="Asset\client\images\star.png" />
     <Content Include="Asset\client\images\tick.png" />
     <Content Include="Asset\client\js\bootstrap.js" />
+    <Content Include="Asset\client\js\bootstrap.min.js" />
     <Content Include="Asset\client\js\controller\baseController.js" />
     <Content Include="Asset\client\js\controller\cartController.js" />
     <Content Include="Asset\client\js\controller\contactController.js" />
     <Content Include="Asset\client\js\imagezoom.js" />
     <Content Include="Asset\client\js\jquery-1.11.0.min.js" />
+    <Content Include="Asset\client\js\jquery-1.11.3.min.js" />
     <Content Include="Asset\client\js\jquery-ui.js" />
     <Content Include="Asset\client\js\jquery.easydropdown.js" />
     <Content Include="Asset\client\js\jquery.flexslider.js" />
