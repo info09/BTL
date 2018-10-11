@@ -31,7 +31,7 @@ namespace Model.Dao
             }
         }
 
-        public IEnumerable<OrderViewModel> Order(DateTime? date, int page, int pageSize)
+        public IEnumerable<OrderViewModel> ListOrder(DateTime? date, int page, int pageSize)
         {
             var data = (from a in db.OrderDetails
                         join b in db.Products
@@ -49,7 +49,11 @@ namespace Model.Dao
                             Price = a.Price,
                             CreatedDate=c.CreatedDate
                         });
-            return data.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+            if (date!=null)
+            {
+                data = data.Where(x => x.CreatedDate.Equals(date));
+            }
+            return data.OrderByDescending(x => x.Name).ToPagedList(page, pageSize);
         }
     }
 }

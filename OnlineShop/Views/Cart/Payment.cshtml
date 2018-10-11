@@ -3,7 +3,7 @@
     ViewBag.Title = "Thông tin thanh toán";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@{ 
+@{
     var session = (OnlineShop.Common.UserLogin)Session[OnlineShop.Common.CommonConstants.USER_SESSION];
 }
 
@@ -17,47 +17,59 @@
         </div>
     </div>
 </div>
+<div class="container">
 
+    <h2 class="text-center">Xác nhận mua hàng</h2>
+</div>
 <div class="prdt">
     <div class="container">
         <div class="prdt-top">
             @if (Model.Count > 0)
             {
-            <table class="table">
-                <thead>
-                    <tr style="background-color:darkblue;color:white; font-weight:bold;">
-                        <td class="text-center" style="border:1px solid #ddd">Mã sản phẩm</td>
-                        <td class="text-center" style="border:1px solid #ddd">Tên sản phẩm</td>
-                        <td class="text-center" style="border:1px solid #ddd">Hình ảnh</td>
-                        <td class="text-center" style="border:1px solid #ddd">Số lượng</td>
-                        <td class="text-center" style="border:1px solid #ddd">Đơn giá</td>
-                        <td class="text-center" style="border:1px solid #ddd">Thành tiền</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td class="text-center" style="border:1px solid #ddd">@item.Product.ID</td>
-                            <td class="text-center" style="border:1px solid #ddd">@item.Product.Name</td>
-                            <td class="text-center" style="border:1px solid #ddd"><img src="@item.Product.Image" width="80" height="128" alt="Alternate Text" /></td>
-                            <td class="text-center" style="border:1px solid #ddd"><input type="number" size="3" class="txtQuantity" data-id="@item.Product.ID" value="@item.Quantity" disabled/></td>
-                            <td class="text-center" style="border:1px solid #ddd">@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
-                            <td class="text-center" style="border:1px solid #ddd">
-                                @if (item.Quantity > 0)
-                                {
-                                    @((item.Product.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))
-                                }
-                                else
-                                {
-                                    @item.Product.Price.GetValueOrDefault(0).ToString("N0")
-                                }
-                            </td>
+                decimal total = 0;
+                <table class="table">
+                    <thead>
+                        <tr style="background-color:darkblue;color:white; font-weight:bold;">
+                            <td class="text-center" style="border:1px solid #ddd">Mã sản phẩm</td>
+                            <td class="text-center" style="border:1px solid #ddd">Tên sản phẩm</td>
+                            <td class="text-center" style="border:1px solid #ddd">Hình ảnh</td>
+                            <td class="text-center" style="border:1px solid #ddd">Số lượng</td>
+                            <td class="text-center" style="border:1px solid #ddd">Đơn giá</td>
+                            <td class="text-center" style="border:1px solid #ddd">Thành tiền</td>
                         </tr>
-                    }
-
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="text-center" style="border:1px solid #ddd">@item.Product.ID</td>
+                                <td class="text-center" style="border:1px solid #ddd">@item.Product.Name</td>
+                                <td class="text-center" style="border:1px solid #ddd"><img src="@item.Product.Image" width="80" height="128" alt="Alternate Text" /></td>
+                                <td class="text-center" style="border:1px solid #ddd"><input type="number" size="3" class="txtQuantity" data-id="@item.Product.ID" value="@item.Quantity" disabled /></td>
+                                <td class="text-center" style="border:1px solid #ddd">@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
+                                <td class="text-center" style="border:1px solid #ddd">
+                                    @if (item.Quantity > 0)
+                                    {
+                                        @((item.Product.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))
+                                    }
+                                    else
+                                    {
+                                        @item.Product.Price.GetValueOrDefault(0).ToString("N0")
+                                    }
+                                </td>
+                            </tr>
+                            total += (item.Product.Price.GetValueOrDefault(0) * item.Quantity);
+                        }
+                        <tr>
+                            <td class="text-center" style="border:1px solid #ddd"></td>
+                            <td class="text-center" style="border:1px solid #ddd"></td>
+                            <td class="text-center" style="border:1px solid #ddd"></td>
+                            <td class="text-center" style="border:1px solid #ddd"></td>
+                            <td class="text-center" style="border:1px solid #ddd;font-weight:bold; font-size:20px; font-family: 'Times New Roman';">Tổng tiền</td>
+                            <td class="text-center" style="border:1px solid #ddd; font-weight:bold; font-size:20px;">@total.ToString("N0")</td>
+                        </tr>
+                    </tbody>
+                </table>
 
             }
 
